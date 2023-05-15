@@ -37,7 +37,12 @@ nav > img {
 
 @media (min-width: 360px) {
   .menu {
+    transform: translateX(0) !important;
     display: flex;
+    position: static;
+    flex-direction: row;
+    background-color: inherit;
+    width: auto;
   }
   .menu-trigger {
     display: none;
