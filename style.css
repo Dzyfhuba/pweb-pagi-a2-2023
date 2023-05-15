@@ -1,3 +1,15 @@
 body {
   margin: 0;
 }
+
+button {
+  background-color: transparent;
+  border: none;
+  width: 44px;
+  height: 44px;
+}
+
+button:hover {
+  border: solid;
+  cursor: pointer;
+}
