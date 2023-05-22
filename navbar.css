@@ -3,6 +3,9 @@ nav {
   height: 44px;
   display: flex;
   justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 99;
 }
 
 
@@ -38,7 +41,6 @@ nav > img {
 @media (min-width: 360px) {
   .menu {
     transform: translateX(0) !important;
-    display: flex;
     position: static;
     flex-direction: row;
     background-color: inherit;

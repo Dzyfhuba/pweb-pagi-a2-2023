@@ -13,3 +13,10 @@ button:hover {
   border: solid;
   cursor: pointer;
 }
+.capitalize {
+  text-transform: capitalize;
+}
+
+.bold {
+  font-size: larger;
+}

@@ -1,4 +1,4 @@
-[{
+const contentData = [{
   "id": 1,
   "title": "Bakso",
   "type": "Crimson",
@@ -99,3 +99,25 @@
   "type": "Indigo",
   "image": "http://dummyimage.com/148x100.png/ff4444/ffffff"
 }]
+
+
+console.log(contentData)
+
+const table = document.querySelector('section#content table')
+
+// console.log(table)
+for (let i = 0; i < contentData.length; i++) {
+  table.innerHTML += `
+    <tr>
+      <td>
+        <span class="bold">${contentData[i].id}</span>
+      </td>
+      <td>
+        <span class="capitalize">${contentData[i].title}</span>
+      </td>
+      <td>
+        <img src="${contentData[i].image}" />
+      </td>
+    </tr>
+  `
+}
