@@ -1,123 +1,26 @@
-const contentData = [{
-  "id": 1,
-  "title": "Bakso",
-  "type": "Crimson",
-  "image": "http://dummyimage.com/210x100.png/cc0000/ffffff"
-}, {
-  "id": 2,
-  "title": "Wine - Fontanafredda Barolo",
-  "type": "Purple",
-  "image": "http://dummyimage.com/152x100.png/cc0000/ffffff"
-}, {
-  "id": 3,
-  "title": "Extract Vanilla Pure",
-  "type": "Yellow",
-  "image": "http://dummyimage.com/124x100.png/cc0000/ffffff"
-}, {
-  "id": 4,
-  "title": "Mustard - Pommery",
-  "type": "Teal",
-  "image": "http://dummyimage.com/111x100.png/dddddd/000000"
-}, {
-  "id": 5,
-  "title": "Cardamon Ground",
-  "type": "Puce",
-  "image": "http://dummyimage.com/237x100.png/dddddd/000000"
-}, {
-  "id": 6,
-  "title": "Beef - Ox Tongue, Pickled",
-  "type": "Maroon",
-  "image": "http://dummyimage.com/101x100.png/ff4444/ffffff"
-}, {
-  "id": 7,
-  "title": "Pasta - Rotini, Dry",
-  "type": "Purple",
-  "image": "http://dummyimage.com/176x100.png/dddddd/000000"
-}, {
-  "id": 8,
-  "title": "Wine - Beaujolais Villages",
-  "type": "Red",
-  "image": "http://dummyimage.com/195x100.png/dddddd/000000"
-}, {
-  "id": 9,
-  "title": "Halibut - Whole, Fresh",
-  "type": "Pink",
-  "image": "http://dummyimage.com/219x100.png/5fa2dd/ffffff"
-}, {
-  "id": 10,
-  "title": "Nut - Pistachio, Shelled",
-  "type": "Mauv",
-  "image": "http://dummyimage.com/204x100.png/ff4444/ffffff"
-}, {
-  "id": 11,
-  "title": "Placemat - Scallop, White",
-  "type": "Mauv",
-  "image": "http://dummyimage.com/174x100.png/dddddd/000000"
-}, {
-  "id": 12,
-  "title": "Wood Chips - Regular",
-  "type": "Orange",
-  "image": "http://dummyimage.com/113x100.png/ff4444/ffffff"
-}, {
-  "id": 13,
-  "title": "Wine - Beringer Founders Estate",
-  "type": "Crimson",
-  "image": "http://dummyimage.com/166x100.png/dddddd/000000"
-}, {
-  "id": 14,
-  "title": "Tea - Camomele",
-  "type": "Mauv",
-  "image": "http://dummyimage.com/182x100.png/cc0000/ffffff"
-}, {
-  "id": 15,
-  "title": "Jam - Marmalade, Orange",
-  "type": "Pink",
-  "image": "http://dummyimage.com/126x100.png/ff4444/ffffff"
-}, {
-  "id": 16,
-  "title": "Roe - Lump Fish, Red",
-  "type": "Puce",
-  "image": "http://dummyimage.com/127x100.png/ff4444/ffffff"
-}, {
-  "id": 17,
-  "title": "Ham - Virginia",
-  "type": "Crimson",
-  "image": "http://dummyimage.com/179x100.png/cc0000/ffffff"
-}, {
-  "id": 18,
-  "title": "Cornstarch",
-  "type": "Crimson",
-  "image": "http://dummyimage.com/166x100.png/5fa2dd/ffffff"
-}, {
-  "id": 19,
-  "title": "Asparagus - White, Fresh",
-  "type": "Blue",
-  "image": "http://dummyimage.com/156x100.png/5fa2dd/ffffff"
-}, {
-  "id": 20,
-  "title": "Noodles - Cellophane, Thin",
-  "type": "Indigo",
-  "image": "http://dummyimage.com/148x100.png/ff4444/ffffff"
-}]
-
-
-console.log(contentData)
-
-const table = document.querySelector('section#content table')
-
-// console.log(table)
-for (let i = 0; i < contentData.length; i++) {
-  table.innerHTML += `
-    <tr>
-      <td>
-        <span class="bold">${contentData[i].id}</span>
-      </td>
-      <td>
-        <span class="capitalize">${contentData[i].title}</span>
-      </td>
-      <td>
-        <img src="${contentData[i].image}" />
-      </td>
-    </tr>
-  `
+async function getData() {
+  const data = await fetch('http://localhost:5500/data.json')
+    .then(res => res.json())
+  console.log('test A')
+  return data
 }
+
+const run = async () => {
+  const contentData = await getData()
+  console.log(contentData)
+  console.log('test B')
+
+  const table = document.querySelector('section#content')
+
+  // console.log(table)
+  for (let i = 0; i < contentData.length; i++) {
+    table.innerHTML += `
+    <div class="card">
+      <img src="${contentData[i].image}" />
+      <span class="capitalize">${contentData[i].title}</span>
+    </div>
+    `
+  }
+}
+
+run()
