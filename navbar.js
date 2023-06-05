@@ -22,22 +22,22 @@ document
 
   })
 
-const variableA = 10
-let variableB = 20
-variableB = 1
+// const variableA = 10
+// let variableB = 20
+// variableB = 1
 
-const data = [
-  'apel',
-  'jeruk',
-  'mangga',
-  'pepaya'
-]
+// const data = [
+//   'apel',
+//   'jeruk',
+//   'mangga',
+//   'pepaya'
+// ]
 
-const root = document.querySelector('#root ol')
-let element = ''
-data.forEach(item => {
-  console.log(item)
-  element += `<li>${item}</li>`
-})
-root.innerHTML = element
-console.log(data);
+// const root = document.querySelector('#root ol')
+// let element = ''
+// data.forEach(item => {
+//   console.log(item)
+//   element += `<li>${item}</li>`
+// })
+// root.innerHTML = element
+// console.log(data);

@@ -1,5 +1,5 @@
 async function getData() {
-  const data = await fetch('http://localhost:5500/data.json')
+  const data = await fetch('data.json')
     .then(res => res.json())
   console.log('test A')
   return data
